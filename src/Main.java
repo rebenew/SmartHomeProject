@@ -3,12 +3,17 @@
 public class Main {
     public static void main(String[] args) {
 
-        SmartThermostat thermostat = new SmartThermostat(20);
-        System.out.println("Temperatura actual: " + thermostat.getTemperature() + "°C");
-        System.out.println("Modo ahorro de energía: " + thermostat.isEnergySavingMode());
+        SmartThermostat thermostat = new SmartThermostat("Google Nest", "T3007ES", "ON", 22);
 
+        thermostat.turnOn();
+        thermostat.deviceInfo();
+
+        thermostat.setTemperature(15);
         thermostat.decreaseTemperature();
-        System.out.println("Temperatura reducida. La temperatura actual es: " + thermostat.getTemperature() + "°C");
+        thermostat.decreaseTemperature();
         thermostat.increaseTemperature();
-        System.out.println("Temperatura aumentada. La temperatura actual es: " + thermostat.getTemperature() + "°C");}
+
+        System.out.println("Energy Saving Mode: " + thermostat.isEnergySavingMode());
+
+     }
 }
