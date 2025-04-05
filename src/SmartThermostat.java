@@ -1,7 +1,7 @@
 public class SmartThermostat extends SmartDevice{
     private int temperature;
 
-    public SmartThermostat(String brand, String model, String status, int initialTemperature) {
+    public SmartThermostat(String brand, String model, boolean status, int initialTemperature) {
         super(brand, model, status);
         setTemperature(initialTemperature);
     }
