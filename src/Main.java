@@ -3,7 +3,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        SmartThermostat thermostat = new SmartThermostat("Google Nest", "T3007ES", "ON", 22);
+        SmartThermostat thermostat = new SmartThermostat("Google Nest", "T3007ES", true, 22);
 
         thermostat.turnOn();
         thermostat.deviceInfo();
