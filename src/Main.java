@@ -3,7 +3,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        SmartThermostat thermostat = new SmartThermostat("Google Nest", "T3007ES", true, 22);
+        SmartThermostat thermostat = new SmartThermostat("Google Nest", "T3007ES", 22);
 
         thermostat.turnOn();
         thermostat.deviceInfo();
@@ -14,6 +14,6 @@ public class Main {
         thermostat.increaseTemperature();
 
         System.out.println("Energy Saving Mode: " + thermostat.isEnergySavingMode());
-
+        thermostat.turnOff();
      }
 }

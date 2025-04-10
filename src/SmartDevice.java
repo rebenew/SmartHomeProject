@@ -3,10 +3,10 @@ abstract class SmartDevice {
     String model;
     boolean status;
 
-    public SmartDevice(String brand, String model, boolean status) {
+    public SmartDevice(String brand, String model) {
         this.brand = brand;
         this.model = model;
-        this.status = status;
+        this.status = false;
     }
 
     public void turnOn() {
@@ -22,11 +22,7 @@ abstract class SmartDevice {
     public abstract void deviceInfo();
 
     // Get Smart Device status
-    public String getStatus() {
-        return status ? "ON" : "OFF";
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
+    public boolean getStatus() {
+        return status;
     }
 }

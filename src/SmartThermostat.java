@@ -1,12 +1,17 @@
 public class SmartThermostat extends SmartDevice{
     private int temperature;
 
-    public SmartThermostat(String brand, String model, boolean status, int initialTemperature) {
-        super(brand, model, status);
-        setTemperature(initialTemperature);
+    public SmartThermostat(String brand, String model, int initialTemperature) {
+        super(brand, model);
+        this.temperature = initialTemperature;
     }
 
     public void setTemperature(int temperature) {
+        if (!getStatus()) {
+            System.out.println(model + " is OFF. Please turn the device ON to set the temperature.");
+            return;
+        }
+
         if (temperature >= 10 && temperature <= 30) {
             this.temperature = temperature;
             System.out.println(model + " temperature set to " + temperature + "°C");
@@ -14,7 +19,6 @@ public class SmartThermostat extends SmartDevice{
             System.out.println("Temperature must be between 10 and 30°C.");
         }
     }
-
     public void increaseTemperature () {
         setTemperature(this.temperature + 1);
     }
@@ -24,12 +28,13 @@ public class SmartThermostat extends SmartDevice{
     }
 
     public boolean isEnergySavingMode() {
-        return this.temperature < 20;
+        return temperature < 20;
     }
 
     @Override
     public void deviceInfo() {
-        System.out.println("Smart Thermostat - Brand: " + brand + ", Model: " + model + ", Status: " + getStatus() +
-                ", Temperature: " + temperature + "°C");
+        String state = getStatus() ? "ON" : "OFF";
+        System.out.println("SmartThermostat - Brand: " + brand + ", Model: " + model +
+                ", Status: " + state + ", Temperature: " + temperature + "°C");
     }
 }
